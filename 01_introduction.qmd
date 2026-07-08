@@ -1,0 +1,21 @@
+---
+title: Introduction
+---
+
+- Statistical learning refers to the vast set of tools for understanding data
+- These tools can be classified as:
+    1. Supervised
+    2. Unsupervised
+- Supervised tools are built with labelled outputs and in essence try to map inputs to these labelled outputs. The pursuit is for the best possible mapping (without overfitting) and the business goal is typically prediction.
+- Unsupervised tools do not have labelled outputs and are trying to find patterns or relationships (e.g. clustering). The business goal is typically to understand the structure of the data. 
+
+>What about reinforcement learning? Is that a third type of tool that isn't nested within supervised or unsupervised learning?
+
+- Dimensionality reduction seems to be a really cool way to reduce high-dimensional information into a handful of dimensions that are easier to use for plotting.
+- The least squares technique for finding the optimal regression line was invented in the early 1800s
+- Regression is useful for predicting quantitative outputs (e.g. salary). For qualitative outputs (e.g. spam vs. not spam), the field moved from 'linear discriminant analysis' to 'logistic regression' to a 'generalized linear model', which is now a catch-all term for regression and classification models.
+- Some specific techniques to keep an eye out for while reading this book:
+  - classification and regression trees
+  - generalized additive models
+  - neural networks
+  - support vector machines

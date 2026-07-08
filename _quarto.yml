@@ -1,0 +1,7 @@
+project:
+  title: "Introduction to Statistical Learning"
+
+execute: 
+  freeze: true
+
+
