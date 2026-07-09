@@ -1,0 +1,33 @@
+---
+title: Statistical Learning
+---
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(ISLR2)
+```
+
+
+The relationship between $Y$, the vector of values of the response variable, and $X$, the matrix of predictor variables, is written as:
+
+$$
+Y = f(X) + \epsilon
+$$ 
+
+Where $\epsilon$ is ideally a *random error term* independent from $X$ with a *mean of zero*. The qualifier *random* is important because it signals the errors need to be uncorrelated with $X$. Uncorrelated errors are desirable because otherwise, the model (i.e. relationship) would perform inconsistently across the values of $X$. The *mean of zero* is important because otherwise, the model would systematically inflate predictions if the mean was above zero, and systematically deflate predictions if the mean was below zero.
+
+There are two main reasons to try estimate $f$:
+
+1. prediction
+2. inference
+
+The book distinguishes reducible vs. irreducible error, with the former arising from the systematic component of the model and being reduceable by choosing a better modelling technique. The irreducible error is $\epsilon$ and it cannot be reduced (short of collecting more data to bring unexplained variation into explained variation)
+
+If we wanted to be explicit when modelling for prediction, we could wrap the terms in a hat, to emphasize they are estimates of an estimand. We can also drop the error, assuming it to be zero. $\hat{Y}$ represents our estimates for the true value of $Y$. $\hat{f}$ represents our estimate for the relationship between the predictor variables. 
+
+$$
+\hat{Y} = \hat{f}(X)
+$$
+
+For predictions, $\hat{f}$ is often treated as a black box - we don't care how the variables in $X$ are modelled (linearly, non-linearly) or how they interact (additively, multiplicatively). That's different in inference, where understanding these relationships is the whole point. 
