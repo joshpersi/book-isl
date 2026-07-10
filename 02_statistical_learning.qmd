@@ -3,6 +3,7 @@ title: Statistical Learning
 ---
 
 ```{r}
+#| warning: false
 library(dplyr)
 library(ggplot2)
 library(ISLR2)
@@ -31,3 +32,37 @@ $$
 $$
 
 For predictions, $\hat{f}$ is often treated as a black box - we don't care how the variables in $X$ are modelled (linearly, non-linearly) or how they interact (additively, multiplicatively). That's different in inference, where understanding these relationships is the whole point. 
+
+We are trying to estimate $f$ with our training data
+
+$$
+{(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)}
+$$
+
+where: 
+
+- $x_i = (x_{i1}, x_{i2}, x_{i3}, ..., x_{ip})^T$
+
+
+Techniques to find $f$ are typically either parametric or non-parametric. Parametric techniques seem familiar to me. First, we make an assumption about the shape or functional form of $f$. Typically, this is that the function $f$ is linear: 
+
+$$
+f(X) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p
+$$
+
+where:
+
+- $\beta_0$ is the intercept
+- $\beta_1$ is the slope of the relationship between predictors and response
+- All $\beta$ values are known as the model parameters
+
+One advantage of assuming a linear model is it's simpler - this is intuitive if you consider that all we're doing is fitting a straight line. Another way to look at it is we only need to model $p + 1$ parameters (slopes for every parameter plus the intercept, $\beta_0$). The downside to a parametric approach is the model may not closely fit the true, unknown form of $f$. It seems like there may be a suite of models called *flexible* models that can combat this concern (but see overfitting).
+
+Once we've selected a model, we need to train it or fit it to the data. A common way to fit data to a line is ordinary least squares (OLS).
+
+Another way of viewing the linear model equation above is to inject predictor variables into it:
+
+$$
+\texttt{income} \approx \beta_0 + \beta_1 \times \texttt{education} + \beta_2 \times \texttt{seniority}
+$$
+

@@ -129,26 +129,9 @@ window.Quarto = {
 
 
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ISLR2' was built under R version 4.6.1</code></pre>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The relationship between <span class="math inline">\(Y\)</span>, the vector of values of the response variable, and <span class="math inline">\(X\)</span>, the matrix of predictor variables, is written as:</p>
 <p><span class="math display">\[
@@ -166,6 +149,29 @@ Y = f(X) + \epsilon
 \hat{Y} = \hat{f}(X)
 \]</span></p>
 <p>For predictions, <span class="math inline">\(\hat{f}\)</span> is often treated as a black box - we don’t care how the variables in <span class="math inline">\(X\)</span> are modelled (linearly, non-linearly) or how they interact (additively, multiplicatively). That’s different in inference, where understanding these relationships is the whole point.</p>
+<p>We are trying to estimate <span class="math inline">\(f\)</span> with our training data</p>
+<p><span class="math display">\[
+{(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(x_i = (x_{i1}, x_{i2}, x_{i3}, ..., x_{ip})^T\)</span></li>
+</ul>
+<p>Techniques to find <span class="math inline">\(f\)</span> are typically either parametric or non-parametric. Parametric techniques seem familiar to me. First, we make an assumption about the shape or functional form of <span class="math inline">\(f\)</span>. Typically, this is that the function <span class="math inline">\(f\)</span> is linear:</p>
+<p><span class="math display">\[
+f(X) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span> is the intercept</li>
+<li><span class="math inline">\(\beta_1\)</span> is the slope of the relationship between predictors and response</li>
+<li>All <span class="math inline">\(\beta\)</span> values are known as the model parameters</li>
+</ul>
+<p>One advantage of assuming a linear model is it’s simpler - this is intuitive if you consider that all we’re doing is fitting a straight line. Another way to look at it is we only need to model <span class="math inline">\(p + 1\)</span> parameters (slopes for every parameter plus the intercept, <span class="math inline">\(\beta_0\)</span>). The downside to a parametric approach is the model may not closely fit the true, unknown form of <span class="math inline">\(f\)</span>. It seems like there may be a suite of models called <em>flexible</em> models that can combat this concern (but see overfitting).</p>
+<p>Once we’ve selected a model, we need to train it or fit it to the data. A common way to fit data to a line is ordinary least squares (OLS).</p>
+<p><span class="math display">\[
+\texttt{income} \approx \beta_0 + \beta_1 \times \texttt{education} + \beta_2 \times \texttt{seniority}
+\]</span></p>
 
 </main>
 <!-- /main column -->
