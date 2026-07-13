@@ -66,3 +66,15 @@ $$
 \texttt{income} \approx \beta_0 + \beta_1 \times \texttt{education} + \beta_2 \times \texttt{seniority}
 $$
 
+Non-parametric methods do not make assumptions about the relationships between the predictor and response variables, so in essence they're more flexible. However, this flexibility comes with a cost — the need for more observations. This feels intuitive since if we can assume the functional form of $f$, we're assuming we understand something about the relationship between $X$ and $Y$. In non-parametric methods, we don't assume a function form of $f$, which is like we're not assuming we understand anything, and we therefore need more data.
+
+Note that non-parametric methods may be more sensitive to overfitting than parametric methods.
+
+Restrictive (i.e. parametric models) shine in inference because they are more interprettable 
+
+Statistical learning problems typically fall into one of two other categories:
+
+1. Supervised
+2. Unsupervised 
+
+Note that there is also semi-supervised learning which has some hallmarks of both supervised and unsupervised learning
