@@ -169,9 +169,36 @@ f(X) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p
 </ul>
 <p>One advantage of assuming a linear model is it’s simpler - this is intuitive if you consider that all we’re doing is fitting a straight line. Another way to look at it is we only need to model <span class="math inline">\(p + 1\)</span> parameters (slopes for every parameter plus the intercept, <span class="math inline">\(\beta_0\)</span>). The downside to a parametric approach is the model may not closely fit the true, unknown form of <span class="math inline">\(f\)</span>. It seems like there may be a suite of models called <em>flexible</em> models that can combat this concern (but see overfitting).</p>
 <p>Once we’ve selected a model, we need to train it or fit it to the data. A common way to fit data to a line is ordinary least squares (OLS).</p>
+<p>Another way of viewing the linear model equation above is to inject predictor variables into it:</p>
 <p><span class="math display">\[
 \texttt{income} \approx \beta_0 + \beta_1 \times \texttt{education} + \beta_2 \times \texttt{seniority}
 \]</span></p>
+<p>Non-parametric methods do not make assumptions about the relationships between the predictor and response variables, so in essence they’re more flexible. However, this flexibility comes with a cost — the need for more observations. This feels intuitive since if we can assume the functional form of <span class="math inline">\(f\)</span>, we’re assuming we understand something about the relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. In non-parametric methods, we don’t assume a function form of <span class="math inline">\(f\)</span>, which is like we’re not assuming we understand anything, and we therefore need more data.</p>
+<p>Note that non-parametric methods may be more sensitive to overfitting than parametric methods.</p>
+<p>Restrictive (i.e.&nbsp;parametric models) shine in inference because they are more interprettable</p>
+<p>Statistical learning problems typically fall into one of two other categories:</p>
+<ol type="1">
+<li>Supervised</li>
+<li>Unsupervised</li>
+</ol>
+<p>Note that there is also semi-supervised learning which has some hallmarks of both supervised and unsupervised learning</p>
+<p>Statstical learning problems with a quantitative response are typically thought of as regression problems. Conversely, those with a qualitative response are typically thought of as classification problems. However, the dividing line isn’t always clean. Consider logistic regression which produces quantitative probabilities for qualitative outcomes and yet is typically thought of as a tool for classification.</p>
+<p>Whether the predictors are quantitative or qualitative is typically less important. I <em>think</em> this is because in statistical learning, qualitative predictors are actually treated as quantitative under the hood.</p>
+<p>There is no ‘best’ method for statistical learning - each has its strengths and may perform well on a particular dataset. Since we can’t just rely on a ‘best’ model, we need to have ways to measure the accuracy or ‘goodness’ of our model.</p>
+<p>A common metric is mean squared error (MSE):</p>
+<p><span class="math display">\[
+MSE = \dfrac{1}{n}\sum_{i=1}^{n}(y_i - \hat{f}(x_i))^2
+\]</span></p>
+<p>MSE is small if the residuals are small (i.e.&nbsp;the fitted predictions are close to the observed values). Note that MSE is calculated on training data and could more accurately be called the <em>training MSE</em>. In reality, we don’t report on the <em>training MSE</em> and are more interested in the test <em>MSE</em>, at least for prediction use-cases.</p>
+<p>The flexibility of a model is linked to its degrees of freedom.</p>
+<p>Overfitting can be thought of as low training MSE and high test MSE. It is when the function <span class="math inline">\(\hat{f}\)</span> learns idiosyncratic patterns unique to the training data and then tries to apply that knowledge in predictions on test data, the catch is, those idiosyncratic patterns (essentially random variation) aren’t identical in the test data, so test MSE tanks.</p>
+<p>With the data we are handed to fit the model, we typically use a method called cross-validation to estimate the test MSE using the training data.</p>
+<p>The expected test MSE for a given value <span class="math inline">\(x_0\)</span> can be decomposed into three fundamental quantities:</p>
+<ol type="1">
+<li><p>the variance of <span class="math inline">\(\hat{f}(x_0)\)</span></p></li>
+<li><p>the squared bias of <span class="math inline">\(\hat{f}(x_0)\)</span></p></li>
+<li><p>the variance of the error terms <span class="math inline">\(\epsilon\)</span></p></li>
+</ol>
 
 </main>
 <!-- /main column -->
