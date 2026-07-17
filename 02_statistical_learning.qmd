@@ -117,3 +117,11 @@ where:
 
 - $E(y_0 - \hat{f}(x_0))^2$ represents the expected test MSE at $x_0$
 
+Since the first two terms, $\text{Var}(\hat{f}(x_0))$ and $[\text{Bias}(\hat{f}(x_0))]$, come from $\hat{f}$, we can imagine trying to drive both the variance and the bias of the model down. Both of these terms are positive and thus the test MSE is always going to be greater than the irreducible error from $\text{Var}\epsilon$. 
+
+In other words, the first two terms are properties of the model that I can control. The last term is a property of reality that I can't control. 
+
+In this context, variance essentially measures how much the function $\hat{f}$ changes with a different training data set. More flexible models like curved splines typically have higher variance than less flexible models like linear regression. 
+
+As we apply more flexible models, bias tends to decrease more quickly than variance increases. At some point, bias stops decreasing appreciably while the variance continues to increase. This suggests there is an optimum that we can strive to reach. This is the *bias-variance trade-off*. 
+

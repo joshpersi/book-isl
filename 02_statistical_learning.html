@@ -199,6 +199,14 @@ MSE = \dfrac{1}{n}\sum_{i=1}^{n}(y_i - \hat{f}(x_i))^2
 <li><p>the squared bias of <span class="math inline">\(\hat{f}(x_0)\)</span></p></li>
 <li><p>the variance of the error terms <span class="math inline">\(\epsilon\)</span></p></li>
 </ol>
+<p>$$</p>
+<p>E(y_0 - (x_0))^2 = ((x_0)) + [((x_0))] + ()</p>
+<p>$$</p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(E(y_0 - \hat{f}(x_0))^2\)</span> represents the expected test MSE at <span class="math inline">\(x_0\)</span></li>
+</ul>
+<p>Since the first two terms, <span class="math inline">\(\text{Var}(\hat{f}(x_0))\)</span> and <span class="math inline">\([\text{Bias}(\hat{f}(x_0))]\)</span>, come from <span class="math inline">\(\hat{f}\)</span>, we can imagine trying to drive both the variance and the bias of the model down. Both of these terms are positive and thus the test MSE is always going to be greater than the irreducible error from <span class="math inline">\(\text{Var}\epsilon\)</span></p>
 
 </main>
 <!-- /main column -->
